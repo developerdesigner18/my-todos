@@ -5,6 +5,7 @@ interface Props {
   className?: string;
   variant?: "white" | "pink";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  isDisabled?: boolean;
 }
 
 export default function Button({
@@ -12,6 +13,7 @@ export default function Button({
   className = "",
   variant = "white",
   onClick = () => null,
+  isDisabled = false,
 }: Props) {
   return (
     <button
@@ -22,6 +24,7 @@ export default function Button({
       } px-3 py-2 rounded-xl todo-shadow  duration-300`}
       type="button"
       onClick={onClick}
+      disabled={isDisabled}
     >
       {children}
     </button>
