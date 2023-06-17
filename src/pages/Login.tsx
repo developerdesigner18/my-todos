@@ -32,8 +32,9 @@ export default function Login() {
 
   useEffect(() => {
     if (!tokenRes) return;
-
     localStorage.setItem(USER_TOKEN, tokenRes.token);
+
+    navigate("/");
   }, [tokenRes]);
 
   const validateInputs = () => {
@@ -69,7 +70,7 @@ export default function Login() {
     try {
       await createUser();
 
-      navigate("/");
+      await getToken();
     } catch (error) {
       console.error(error);
     }
